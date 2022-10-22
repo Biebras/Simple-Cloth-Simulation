@@ -189,7 +189,7 @@ int main(void)
         {
             for(int y = 0; y < colCount; y++)
             {
-                if(y == 0)
+                //if(y == 0)
                     particles[x][y]->Draw();
             }
         }
