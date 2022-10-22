@@ -1,6 +1,6 @@
 # Simple Cloth Simulation
  Custom Cloth simulation that was created using c++ and raylib.
- The cloth simulation is done by following Hooke's law:
+ The cloth simulation is done by following Hooke's law (F = -k * x):
  1. Create spring
  2. Join springs into system
  3. Enjoy cloth
