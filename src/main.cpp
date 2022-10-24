@@ -4,18 +4,19 @@
 #include "../lib/raymath.h"
 #include "../lib/particle.h"
 #include "../lib/spring.h"
+#include "../lib/stb_perlin.h"
 
 using namespace std;
 
 int main(void) 
 { 
     //Screen variables
-    const int screenWidth = 1200;
-    const int screenHeight = 800;
+    const int screenWidth = 1600;
+    const int screenHeight = 900;
 
     //Particle and spring instantiation variables
     //how many particles per row
-    int rowCount= 50;
+    int rowCount= 73;
     //how many particles per column
     int colCount = 15;
     //distance between particles in x axis
@@ -23,7 +24,7 @@ int main(void)
     //distance between particles in x axis
     int paddingY = 8;
     //ofset of particles in world position
-    Vector2 particleOffset = {120, 30};
+    Vector2 particleOffset = {80, 30};
     
     InitWindow(screenWidth, screenHeight, "Cloth Simulation");
 
@@ -37,6 +38,10 @@ int main(void)
     //max spring length, if it reaches the spring breaks
     float maxSpringLength = 220;
     Vector2 gravity = {0, 3};
+    //Wind variables
+    Vector2 windDirection = {2, 2};
+    float windScale = 0.1;
+    float windOffsetSpeed = 1;
 
     SetTargetFPS(144);
 
@@ -99,7 +104,7 @@ int main(void)
 
                 //remove string if mouse collides string
                 //20 - collisios treshold
-                if(CheckCollisionPointLine(GetMousePosition(), posA, posB, 20))
+                if(CheckCollisionPointLine(GetMousePosition(), posA, posB, 5))
                 {
                     springs[i] = NULL;
                     delete(springs[i]);
@@ -163,10 +168,17 @@ int main(void)
             {
                 //Add gravity to particles
                 particles[x][y]->AddForce(gravity);
+                
+                //Wind force
+                float noise = stb_perlin_noise3((float)x * windScale + GetTime() * windOffsetSpeed, (float)y * windScale + GetTime() * windOffsetSpeed, 0, 0, 0, 0);
+                Vector2 wind = Vector2Scale(windDirection, noise);
+                particles[x][y]->AddForce(wind);
+
                 //Update particle
                 particles[x][y]->Update();
             }
         }
+
 #pragma endregion Update
 
 #pragma region Draw
@@ -189,7 +201,7 @@ int main(void)
         {
             for(int y = 0; y < colCount; y++)
             {
-                //if(y == 0)
+                if(y == 0)
                     particles[x][y]->Draw();
             }
         }
