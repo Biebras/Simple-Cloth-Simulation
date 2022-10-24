@@ -1,5 +1,6 @@
 # Simple Cloth Simulation
-You can run the program by doublec licking app in the bin. Currentlly, it only works for mac users.
+Made with c++ and raylib (Truly awesome library)
+You can run the program by double clicking app in the bin. Currentlly, it only works for mac users.
 
  Custom Cloth simulation that was created using c++ and raylib.
  The cloth simulation is done by following Hooke's law (F = -k * x):
