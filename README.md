@@ -9,9 +9,9 @@ You can run the program by double clicking app in the bin. Currentlly, it only w
  3. Enjoy cloth
  
  # Controls
- Right click: Grab circle
+ Right click: Grab rope
  
- Left Click: Cut Ropes
+ Left Click: Cut rope
  
 <img width="1303" alt="Screenshot 2022-10-22 at 23 36 35" src="https://user-images.githubusercontent.com/49594342/197364796-238f2320-599a-4b1f-ac4f-46b7d48f8eb0.png">
 
