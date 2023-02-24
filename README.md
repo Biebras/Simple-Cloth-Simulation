@@ -8,6 +8,10 @@ You can run the program by double clicking app in the bin. Currentlly, it only w
  2. Join springs into system
  3. Enjoy cloth
  
+ # Controls
+ Right click: Grab circle
+ 
+ Left Click: Cut Ropes
  
 <img width="1303" alt="Screenshot 2022-10-22 at 23 36 35" src="https://user-images.githubusercontent.com/49594342/197364796-238f2320-599a-4b1f-ac4f-46b7d48f8eb0.png">
 
